@@ -141,7 +141,7 @@ function join(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
     var args = Array.from(arguments);
 
-
+return args.join("");
     // YOUR CODE ABOVE HERE //
 }
 
@@ -171,8 +171,10 @@ return stringOne.length > stringTwo.length ? stringOne : stringTwo;
  */
 function sortAscending(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
-stringOne.sort() > stringTwo.sort() ? 1 : -1;
-    // YOUR CODE ABOVE HERE //
+let compValue = stringTwo.localeCompare(stringOne)
+   
+return compValue;
+// YOUR CODE ABOVE HERE //
 }
 
 
@@ -186,7 +188,9 @@ stringOne.sort() > stringTwo.sort() ? 1 : -1;
 function sortDescending(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
 
-
+    let compValue = stringOne.localeCompare(stringTwo)
+   
+    return compValue;
 
 
     // YOUR CODE ABOVE HERE //
