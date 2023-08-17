@@ -8,7 +8,7 @@
 
 
 1) In terminal, type => git add -A
-2) In terminal, type => git commit -m "describe commit"
+2) In terminal, type => git commit -m ""
 3) In terminal, type => git push
 
 ## How to install a new project
