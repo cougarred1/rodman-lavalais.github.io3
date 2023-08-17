@@ -22,12 +22,19 @@
  *  c. you'll wanna make use of the push() method of Array.
  */
 function range(start, end) {
-    // YOUR CODE GOES BELOW HERE //
-    
-    
-    
-    
-    // YOUR CODE GOES ABOVE HERE //
+//create storage array
+let output = [];
+
+if (start < end){
+    for (let i = start; i <= end; i++){
+        output.push(i);
+    }
+} else {
+    for (let i = start; i >= end; i--){
+        output.push(i);
+    }
+}
+return output;
 }
 
 
