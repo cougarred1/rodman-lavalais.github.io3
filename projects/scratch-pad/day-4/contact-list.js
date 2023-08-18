@@ -37,7 +37,13 @@
 
 // YOUR CODE GOES BELOW HERE //
 function makeContact(id, nameFirst, nameLast) {
-
+ 
+    let obj = {
+        id: id,
+        nameFirst: nameFirst,
+        nameLast: nameLast
+    };
+  return obj;
 } 
 
 
@@ -55,6 +61,16 @@ function makeContactList() {
         addContact: function(contact){
             contacts.push(contact)
 
+        },
+        findContact: function(fullName){
+            for (let i = 0; i < contacts.length; i++){
+                let fullName = contacts[i].firstName + " " + contacts.nameLast;
+            }
+            if (contacts.hasOwnProperty(id)){
+                return contacts.firstName + " " + contacts.nameLast;
+            } else if (!contacts.hasOwnProperty(id)){
+                return undefined;
+            }
         }
     }
 }
