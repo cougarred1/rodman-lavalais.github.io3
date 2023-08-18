@@ -94,22 +94,21 @@ function typeOf(value) {
         return "string";
     } else if (Array.isArray(value)){
         return "array";
-    } else if (typeof value === 'object'){
-        return "object";
     } else if (typeof value === "undefined"){
         return "undefined";
     } else if (typeof value === "number"){
         return "number";
     } else if (typeof value === "boolean"){
         return "boolean";
-    } else if (typeof value === null){
+    } else if (value === null){
         return "null";
     } else if (typeof value === "function"){
         return "function";
     } else if (value instanceof Date){
         return "date";
-    }
-    
+    } else if (typeof value === 'object'){
+        return "object";
+    } 
 }
 
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////
