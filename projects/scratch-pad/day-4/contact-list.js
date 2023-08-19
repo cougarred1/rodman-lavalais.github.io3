@@ -61,15 +61,13 @@ function makeContactList() {
         addContact: function(contact){
             contacts.push(contact)
 
-        },
+        }, // returns the contact object if found in the contacts-list
         findContact: function(fullName){
             for (let i = 0; i < contacts.length; i++){
-                let fullName = contacts[i].firstName + " " + contacts.nameLast;
-            }
-            if (contacts.hasOwnProperty(id)){
-                return contacts.firstName + " " + contacts.nameLast;
-            } else if (!contacts.hasOwnProperty(id)){
-                return undefined;
+                
+                if (fullme === contacts[i].nameFirst + " " + contacts[i].nameLast){
+                return contacts[i];
+                }
             }
         }
     }
