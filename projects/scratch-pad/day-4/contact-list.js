@@ -65,11 +65,27 @@ function makeContactList() {
         findContact: function(fullName){
             for (let i = 0; i < contacts.length; i++){
                 
-                if (fullme === contacts[i].nameFirst + " " + contacts[i].nameLast){
+                if (fullName === contacts[i].nameFirst + " " + contacts[i].nameLast){
                 return contacts[i];
                 }
             }
+        },
+        removeContact: function(contact){
+            contacts.splice(0, 1);
+        },
+       printAllContactNames: function(){
+        //create storage array to push 
+        var str = [];
+        //iterate over contacts
+        for (let i = 0; i < contacts.length; i++){
+            //create new variable and assign it to the first and last name together
+            var newVar = contacts[i].nameFirst + ' ' + contacts[i].nameLast;
+            //push the full name into the str storage
+            str.push(newVar);
         }
+        //join the array with the \n
+       return str.join("\n");
+       } 
     }
 }
 
