@@ -122,10 +122,19 @@ friends.push(animals[getRandom(animals)].name);
 
 console.log(friends);
 
-/**
- * Using **bracket notation**, add the `friends` list as a **property**
- *  also named `friends` on one of the animals in the `animals` array
- * 
+
+ //Using **bracket notation**, add the `friends` list as a **property**
+ //also named `friends` on one of the animals in the `animals` array
+
+ //get a random index from the animals array
+
+//add a key called friends, which equals our friends array
+
+animals[getRandom(animals)].friends = friends;
+
+
+//find object, then add key to the object called friends, and want value of key to be friends array weve already created
+
 
 
 
