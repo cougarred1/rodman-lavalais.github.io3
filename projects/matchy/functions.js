@@ -54,6 +54,17 @@ for (let i = 0; i < animals.length; i++){
 //////////////////////////////////////////////////////////////////////
 
 
+//array of animals and object animal
+function add(animals, animal){
+    for (let i = 0; i < animals.length; i++){
+        if (animal.name.length > 0 && animal.species.length > 0 && animal.name !== animals[i].name){
+            animals.push(animal);
+        } else {
+            return animals;
+        }
+    }
+}
+
 
 /**
  * You did it! You're all done with Matchy!
