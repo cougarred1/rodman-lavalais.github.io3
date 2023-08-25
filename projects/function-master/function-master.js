@@ -111,13 +111,19 @@ let theSpecies = object.species.charAt(0).toUpperCase() + object.species.slice(1
 //////////////////////////////////////////////////////////////////////
 
 function maybeNoises(object) {
-    //if the object has a noises array, return the array as a string separated by space
+  //if the object has noises key and value of an array, return the array as a string separated by space
     //if no noises array, return there are no noises
-for (let key in object){
-    if (Array.isArray(noises)){
-        
+
+//if noises is an array AND the array has atleast 1 thing in it
+if (Array.isArray(object.noises) && object.noises.length > 0){
+    //return everything in the array joined as a string
+    //separated by a space
+    return object.noises.join(" ");
+    } else {
+    //return "there are no noises" if not"
+    return "there are no noises";
     }
-}
+  
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -125,7 +131,7 @@ for (let key in object){
 //////////////////////////////////////////////////////////////////////
 
 function hasWord(string, word) {
-
+return string.includes(word);
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -133,7 +139,19 @@ function hasWord(string, word) {
 //////////////////////////////////////////////////////////////////////
 
 function addFriend (name, object) {
-
+//name and object
+  //add the name to the objects friends array
+    //return the object
+  //iterate though ekys in object
+  for (let key in object){
+    //check if object has friends property
+    if (object.hasOwnProperty('friends')){
+      //push the name into the friends key
+      object[key].push(name);
+      }
+    }  
+    //return the entire object
+    return object;
 }
 
 //////////////////////////////////////////////////////////////////////
