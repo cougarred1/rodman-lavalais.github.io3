@@ -3,7 +3,15 @@
 //////////////////////////////////////////////////////////////////////
 
 function objectValues(object) {
-
+//storage array to return at end
+    let output = [];
+    //iterate through the object using for in loop
+    for (let key in object){
+        //push the object values into output storage array
+        output.push(object[key]);
+    }
+    //return the output
+    return output;
 } 
 
 //////////////////////////////////////////////////////////////////////
@@ -11,7 +19,15 @@ function objectValues(object) {
 //////////////////////////////////////////////////////////////////////
 
 function keysToString(object) {
-
+    //storage array
+    let output = [];
+//iteration
+    for (let key in object){
+        //push the keys into the storage array
+        output.push(key);
+    }
+    //return the keys joined with a space to the storage array
+    return output.join(" ");
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -19,7 +35,15 @@ function keysToString(object) {
 //////////////////////////////////////////////////////////////////////
 
 function valuesToString(object) {
-    
+    //storage array
+    let output = [];
+//iteration
+    for (let key in object){
+        //push the keys into the storage array
+        output.push(object[key]);
+    }
+    //return the keys joined with a space to the storage array
+    return output.join(" "); 
 }
 
 //////////////////////////////////////////////////////////////////////
