@@ -39,8 +39,11 @@ function valuesToString(object) {
     let output = [];
 //iteration
     for (let key in object){
-        //push the keys into the storage array
+        if (typeof object[key] === 'string'){
         output.push(object[key]);
+        } 
+        //push the keys into the storage array
+        
     }
     //return the keys joined with a space to the storage array
     return output.join(" "); 
@@ -51,7 +54,11 @@ function valuesToString(object) {
 //////////////////////////////////////////////////////////////////////
 
 function arrayOrObject(collection) {
-    
+    if (Array.isArray(collection)){
+        return 'array';
+    } else {
+        return 'object';
+    }
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -59,7 +66,7 @@ function arrayOrObject(collection) {
 //////////////////////////////////////////////////////////////////////
 
 function capitalizeWord(string) {
-    
+   return string.charAt(0).toUpperCase() + string.slice(1); 
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -67,7 +74,11 @@ function capitalizeWord(string) {
 //////////////////////////////////////////////////////////////////////
 
 function capitalizeAllWords(string) {
-    
+    let newArr = string.split(" ");
+    for (let i = 0; i < newArr.length; i++){
+        newArr[i] = newArr[i].charAt(0).toUpperCase() + newArr[i].slice(1).toLowerCase();
+    }
+    return newArr.join(" ");
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -75,7 +86,8 @@ function capitalizeAllWords(string) {
 //////////////////////////////////////////////////////////////////////
 
 function welcomeMessage(object) {
-
+    return `Welcome ${object.name.charAt(0).toUpperCase() + object.name.slice(1).toLowerCase()}!`;
+    
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -83,7 +95,15 @@ function welcomeMessage(object) {
 //////////////////////////////////////////////////////////////////////
 
 function profileInfo(object) {
+  //create new variable, while using $ to uppercase the first letter, and use .slice to bring the rest of the word in lowercase for both parts
+  let theName = object.name.charAt(0).toUpperCase() + object.name.slice(1).toLowerCase();
+  console.log(theName);
 
+let theSpecies = object.species.charAt(0).toUpperCase() + object.species.slice(1).toLowerCase();
+  console.log(theSpecies);
+  //use $ to return the sentence
+
+  return `${theName} is a ${theSpecies}`
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -91,7 +111,13 @@ function profileInfo(object) {
 //////////////////////////////////////////////////////////////////////
 
 function maybeNoises(object) {
-
+    //if the object has a noises array, return the array as a string separated by space
+    //if no noises array, return there are no noises
+for (let key in object){
+    if (Array.isArray(noises)){
+        
+    }
+}
 }
 
 //////////////////////////////////////////////////////////////////////
