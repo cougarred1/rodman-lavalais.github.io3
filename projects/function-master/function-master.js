@@ -167,7 +167,15 @@ function isFriend(name, object) {
 //////////////////////////////////////////////////////////////////////
 
 function nonFriends(name, array) {
-
+//iterate through the array
+for (let i = 0; i < array.length; i++){
+    //check which object names, are in the current object friends array
+    
+      if (array[i].friends.includes(name)){
+    delete array[i].friends[array[i].friends.indexOf(name)]
+        }
+      }
+    return array;
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -175,7 +183,10 @@ function nonFriends(name, array) {
 //////////////////////////////////////////////////////////////////////
 
 function updateObject(object, key, value) {
+    object[key] = value;
 
+  
+    return object;
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -184,6 +195,15 @@ function updateObject(object, key, value) {
 
 function removeProperties(object, array) {
 
+    for (let i = 0; i < array.length; i++){
+
+        if (object.hasOwnProperty(array[i])){
+          delete object[array[i]];
+         }
+        
+        }
+        
+      
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -191,7 +211,7 @@ function removeProperties(object, array) {
 //////////////////////////////////////////////////////////////////////
 
 function dedup(array) {
-
+    return array.filter((item, index) => array.indexOf(item) === index);
 }
 
 //////////////////////////////////////////////////////////////////////
