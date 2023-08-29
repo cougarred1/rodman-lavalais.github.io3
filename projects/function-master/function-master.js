@@ -159,7 +159,11 @@ function addFriend (name, object) {
 //////////////////////////////////////////////////////////////////////
 
 function isFriend(name, object) {
-    return object.friends.includes(name);
+    if (Object.keys(object).length > 0 && object.friends.includes(name)){
+        return true;
+      } else {
+        return false;
+      }
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -167,15 +171,15 @@ function isFriend(name, object) {
 //////////////////////////////////////////////////////////////////////
 
 function nonFriends(name, array) {
-//iterate through the array
-for (let i = 0; i < array.length; i++){
-    //check which object names, are in the current object friends array
-    
-      if (array[i].friends.includes(name)){
-    delete array[i].friends[array[i].friends.indexOf(name)]
-        }
-      }
-    return array;
+    let output = [];
+    for (let i = 0; i < array.length; i++){
+        //check which object names, are in the current object friends array
+        
+          if (array[i].name !== name && !array[i].friends.includes(name)){
+         output.push(array[i].name);
+            }
+          }
+        return output;
 }
 
 //////////////////////////////////////////////////////////////////////
