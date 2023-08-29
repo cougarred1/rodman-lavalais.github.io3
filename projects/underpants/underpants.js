@@ -226,6 +226,24 @@ _.each(['alex', 'francis', 'aaron'], function(item){
 *   _.map([1,2,3,4], function(e){return e * 2}) -> [2,4,6,8]
 */
 
+_.map = function(collection, func){
+  let output = [];
+  if (Array.isArray(collection)){
+    for (let i = 0; i < collection.length; i++){
+      //use input func to create "modified" version of current value
+
+
+      output.push(func(collection[i], i, collection));
+
+
+      //push modified value into
+    }
+  } else {
+    // iterate object
+      // pass current value, key, and collection into callback function and push output
+  }
+  return output;
+}
 
 /** _.pluck
 * Arguments:
@@ -256,10 +274,10 @@ _.each(['alex', 'francis', 'aaron'], function(item){
 *   1) what if <function> doesn't return a boolean
 *   2) What if <function> is not given?
 * Examples:
-*   _.every([2,4,6], function(e){return e % 2 === 0}) -> true
+*   _.every([2,4,6], function(e){return e % 2 === 0}) -> true only return true if EVERY test passes
 *   _.every([1,2,3], function(e){return e % 2 === 0}) -> false
 */
-
+//does the current item not pass the test, if so return false
 
 /** _.some
 * Arguments:
