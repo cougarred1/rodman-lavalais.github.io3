@@ -21,7 +21,7 @@ var _ = {};
 *   _.identity({a: "b"}) === {a: "b"}
 */
 
-_.identity = function(){
+_.identity = function(value){
     return value;
 };
 /** _.typeOf
@@ -43,9 +43,25 @@ _.identity = function(){
 * _.typeOf("javascript") -> "string"
 * _.typeOf([1,2,3]) -> "array"
 */
-// _.typeOf = function(){
-
-// }
+_.typeOf = function(value){
+if (typeof value === "string"){
+  return "string";
+} else if (Array.isArray(value)){
+  return "array";
+} else if (value === null){
+  return "null";
+} else if (typeof value === "undefined"){
+  return "undefined";
+} else if (typeof value === "number"){
+  return "number";
+} else if (typeof value === "boolean"){
+  return "boolean";
+} else if (typeof value === "object"){
+  return "object";
+} else {
+  return "function";
+}
+}
 
 /** _.first
 * Arguments:
@@ -65,6 +81,16 @@ _.identity = function(){
 *   _.first(["a", "b", "c"], 2) -> ["a", "b"]
 */
 
+_.first = function(array, number){
+if (!Array.isArray(array) || number < 0){
+  return [];
+  } else if (typeof number !== "number"){
+     return array[0];
+  } else {
+    return array.slice(0, number);
+  }
+ 
+}
 
 /** _.last
 * Arguments:
@@ -84,6 +110,21 @@ _.identity = function(){
 *   _.last(["a", "b", "c"], 2) -> ["b", "c"]
 */
 
+_.last = function(array, number){
+if (!Array.isArray(array) || number < 0){
+  return [];
+  } else if (typeof number !== "number"){
+    return array[array.length - 1];
+  } else if (number > array.length){
+    return array;
+  } else {
+    return array.slice(array.length - number);
+  }
+
+}
+
+
+
 
 /** _.indexOf
 * Arguments:
@@ -101,6 +142,13 @@ _.identity = function(){
 *   _.indexOf(["a","b","c"], "d") -> -1
 */
 
+_.indexOf = function(array, value){
+
+for (let i = 0; i < array.length; i++){
+  return array.indexOf(value);
+  } 
+
+}
 
 /** _.contains
 * Arguments:
@@ -117,6 +165,9 @@ _.identity = function(){
 *   _.contains([1,"two", 3.14], "two") -> true
 */
 
+_.contains = function(array, value){
+  return array.includes(value) ? true: false;
+}
 
 /** _.each
 * Arguments:
@@ -139,7 +190,7 @@ _.each = function(collection, func){
         func(collection[i], i, collection);
       }  
     } else {
-
+      func(collection[i], i, collection);
     }
 };
 
