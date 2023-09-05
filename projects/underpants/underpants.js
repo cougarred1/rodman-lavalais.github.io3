@@ -190,7 +190,10 @@ _.each = function(collection, func){
         func(collection[i], i, collection);
       }  
     } else {
-      func(collection[i], i, collection);
+      for (let i in collection){
+       func(collection[i], i, collection); 
+      }
+      
     }
 };
 
@@ -209,6 +212,16 @@ _.each(['alex', 'francis', 'aaron'], function(item){
 *   _.unique([1,2,2,4,5,6,5,2]) -> [1,2,4,5,6]
 */
 
+_.unique = function(array){
+  let output = [];
+  for (let i = 0; i < array.length; i++){
+    if (output.indexOf(array[i]) === -1){
+      output.push(array[i]);
+    }
+    
+  }
+  return output;
+}
 
 /** _.filter
 * Arguments:
@@ -226,6 +239,20 @@ _.each(['alex', 'francis', 'aaron'], function(item){
 *   use _.each in your implementation
 */
 
+_.filter = function(array, func){
+ let output = [];
+  for (let i = 0; i < array.length; i++){
+    if (func(array[i], i, array) === true){
+      output.push(array[i]);
+    }
+   }
+ return output; 
+}
+
+
+/*
+
+*/
 
 /** _.reject
 * Arguments:
@@ -240,6 +267,19 @@ _.each(['alex', 'francis', 'aaron'], function(item){
 *   _.reject([1,2,3,4,5], function(e){return e%2 === 0}) -> [1,3,5]
 */
 
+_.reject = function(array, func){
+  //storage array to push expected values
+  let output = [];
+  //iterate through the array
+  for (let i = 0; i < array.length; i++){
+    //if the callback function of the elements returns false
+    if (func(array[i], i, array) === false) {
+      //push those values in storage array
+      output.push(array[i]);
+    }
+  }
+return output
+}
 
 /** _.partition
 * Arguments:
@@ -260,6 +300,23 @@ _.each(['alex', 'francis', 'aaron'], function(item){
 }
 */
 
+_.partition = function(array, func){
+let output = [];
+let arr1 = [];
+let arr2 = [];
+ output.push(arr1);
+    output.push(arr2);
+    
+  for (let i = 0; i < array.length; i++){
+   
+    if (func(array[i], i, array) === true) {
+      output[0].push(array[i]);
+    } else {
+      output[1].push(array[i]);
+    }
+  }
+  return output;
+}
 
 /** _.map
 * Arguments:
@@ -282,8 +339,8 @@ _.map = function(collection, func){
   if (Array.isArray(collection)){
     for (let i = 0; i < collection.length; i++){
       //use input func to create "modified" version of current value
-
-
+      
+      
       output.push(func(collection[i], i, collection));
 
 
@@ -291,6 +348,9 @@ _.map = function(collection, func){
     }
   } else {
     // iterate object
+    for (let key in collection){
+      output.push(func(collection[key], key, collection));
+    }
       // pass current value, key, and collection into callback function and push output
   }
   return output;
@@ -306,6 +366,17 @@ _.map = function(collection, func){
 * Examples:
 *   _.pluck([{a: "one"}, {a: "two"}], "a") -> ["one", "two"]
 */
+
+_.pluck = function(array, prop){
+let output = [];
+_.map(array, console.log);
+for (let i = 0; i < array.length; i++){
+  console.log("inside the for loop", array[i])
+  output.push(array[i][prop]);
+  
+  }
+return output;
+}
 
 
 /** _.every
@@ -330,6 +401,34 @@ _.map = function(collection, func){
 */
 //does the current item not pass the test, if so return false
 
+_.every = function(collec, func){
+  if (Array.isArray(collec) && func !== undefined){
+    for (let i = 0; i < collec.length; i++){
+      if (func(collec[i], i, collec) !== true){
+        return false;
+      } 
+    }
+   
+  } else {
+    if (func !== undefined){
+     for (let i in collec){
+     if (func(collec[i], i, collec) !== true){
+      return false;
+     } 
+    } 
+    }
+  } if (func === undefined){
+      for (let i = 0; i < collec.length; i++){
+        if (!collec[i]){
+          return false;
+        } 
+        }
+      }
+      return true;
+  }
+ 
+
+
 /** _.some
 * Arguments:
 *   1) A collection
@@ -351,6 +450,14 @@ _.map = function(collection, func){
 *   _.some([1,2,3], function(e){return e % 2 === 0}) -> true
 */
 
+_.some = function(collec, func){
+
+  for (let i = 0; i < collec.length; i++){
+    if (Array.isArray(collec)){
+      func(collec[i, i, collec]);
+    }
+  }
+}
 
 /** _.reduce
 * Arguments:
@@ -370,6 +477,27 @@ _.map = function(collection, func){
 * Examples:
 *   _.reduce([1,2,3], function(previousSum, currentValue, currentIndex){ return previousSum + currentValue }, 0) -> 6
 */
+
+/*
+_.reduce = function(array, func, seed){
+  let result;
+  if (seed === undefined){
+    result = array[0];
+    for (let i = 0; i < array.length; i++){
+      result = function(result, array[i], i);
+    }
+  } else {
+    result = seed;
+    for (let i = 0; i < array.length; i++){
+      result = func(result, array[i], i);
+    }
+
+  }
+  return result;
+}
+*/
+//example 1
+
 
 
 /** _.extend
