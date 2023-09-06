@@ -198,7 +198,7 @@ _.each = function(collection, func){
 };
 
 _.each(['alex', 'francis', 'aaron'], function(item){
-    console.log(item);
+    //console.log(item);
 });
 
 
@@ -451,13 +451,30 @@ _.every = function(collec, func){
 */
 
 _.some = function(collec, func){
-
-  for (let i = 0; i < collec.length; i++){
-    if (Array.isArray(collec)){
-      func(collec[i, i, collec]);
+  if (Array.isArray(collec) && func !== undefined){
+    for (let i = 0; i < collec.length; i++){
+      if (func(collec[i], i, collec) === true){
+        return true;
+      } 
     }
+   
+  } else {
+    if (func !== undefined){
+     for (let i in collec){
+     if (func(collec[i], i, collec) !== true){
+      return true;
+     } 
+    } 
+    }
+  } if (func === undefined){
+      for (let i = 0; i < collec.length; i++){
+        if (collec[i]){
+          return true;
+        } 
+        }
+      }
+      return false;
   }
-}
 
 /** _.reduce
 * Arguments:
@@ -478,13 +495,13 @@ _.some = function(collec, func){
 *   _.reduce([1,2,3], function(previousSum, currentValue, currentIndex){ return previousSum + currentValue }, 0) -> 6
 */
 
-/*
+
 _.reduce = function(array, func, seed){
   let result;
   if (seed === undefined){
     result = array[0];
-    for (let i = 0; i < array.length; i++){
-      result = function(result, array[i], i);
+    for (let i = 1; i < array.length; i++){
+      result = func(result, array[i], i);
     }
   } else {
     result = seed;
@@ -495,7 +512,7 @@ _.reduce = function(array, func, seed){
   }
   return result;
 }
-*/
+
 //example 1
 
 
@@ -514,6 +531,20 @@ _.reduce = function(array, func, seed){
 *   _.extend(data, {b:"two"}); -> data now equals {a:"one",b:"two"}
 *   _.extend(data, {a:"two"}); -> data now equals {a:"two"}
 */
+
+_.extend = function(){
+  
+  let obs = arguments[0];
+  for (let i = 1; i < arguments.length; i++){
+    for (let key in arguments[i]){
+      obs[key] = arguments[i][key];
+    }
+  }
+   return obs; 
+}
+
+
+
 
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////
