@@ -20,9 +20,10 @@ var _ = require('underbar');
  *
  *    IMPORTANT: Make sure you replace <YOUR_GITHUB_FOLDER with your actual github folder name that is in your workspace.
  */
+
 //map, filter, each, reduce
 
-
+//return number aaand find number of males
 var maleCount = function(array) {
     let males = _.filter(array, function(customers){
         return customers.gender === 'male';
@@ -30,32 +31,53 @@ var maleCount = function(array) {
     return males.length;
 };
 
+//return number
+//find number of females
 var femaleCount = function(array){
-    let females = _.reduce(accumulator, function(accumulator, current){ //determine if current customer is female, if female add 1 to accumulator
-        if (customers.gender === 'female'){
-            accumulator += 1;
+    let females = _.reduce(array, function(acc, cur){ //determine if current customer is female, if female add 1 to accumulator
+        if (cur.gender === 'female'){
+            acc += 1;
         }
-        return accumulator;
+        return acc;
     }, 0);
-
+    return females;
 }
 
 
 
 
 var oldestCustomer = function(array){
-   let oldest = _.reduce(array, function(accumulator, current){
+    let oldest = _.reduce(array, function(acc, cur){
         //is the current customer in the array older than accumulator
-        //return current
-    }); // no seed => result = array[0]
-        //return oldest customers name
+        if (cur.age > acc.age){
+            return cur; //return current 
+        } 
+        return acc;
+    });
+    // no seed => result = array[0]
+    return oldest.name;  //return oldest customers name
 }
     
-var youngestCustomer;
+var youngestCustomer = function(array){
+    let youngest = _.reduce(array, function(acc, cur){
+
+        if (cur.age < acc.age){
+            return cur;
+        }
+        return acc;
+    })
+    return youngest.name;
+};
 
 var averageBalance;  //skip til next week
 
-var firstLetterCount;
+//use .filter
+var firstLetterCount = function(array, letter){
+    let first = _.filter(function(list){
+        if (list.name[0].toUpperCase() === letter)
+    })
+    return first;
+};
 
 var friendFirstLetterCount;
 

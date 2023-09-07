@@ -36,11 +36,21 @@ function fizzBuzz() {
 // drawChessboard //////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function drawChessboard(size) {
-  for (let i = 1; i <= size; i++){
-    console.log('# # # #');
-    console.log(' # # # #')
+function drawChessboard(size){
+  let board = [];
+  for (let i = 0; i < size; i++){
+    let row1 = [];
+    for (let j = 0; j < size; j++){
+      if ((j + i) % 2 === 0){
+        row1.push("#");
+      } else {
+        row1.push(" ");
+      }
     }
+    board.push(row1.join(""));
+  }
+  
+  return board.join("\n");
 }
 
 ////////////////////////////////////////////////////////////////////////////////
