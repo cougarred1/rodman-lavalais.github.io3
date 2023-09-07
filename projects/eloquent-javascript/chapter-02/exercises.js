@@ -42,15 +42,15 @@ function drawChessboard(size){
     let row1 = [];
     for (let j = 0; j < size; j++){
       if ((j + i) % 2 === 0){
-        row1.push("#");
-      } else {
         row1.push(" ");
+      } else {
+        row1.push("#");
       }
     }
     board.push(row1.join(""));
   }
   
-  return board.join("\n");
+  console.log(board.join("\n") + "\n");
 }
 
 ////////////////////////////////////////////////////////////////////////////////
