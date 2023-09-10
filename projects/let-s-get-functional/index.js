@@ -2,6 +2,7 @@
 
 'use strict';
 
+const first = require('underbar/first');
 var customers = require('./data/customers.json');
 var _ = require('underbar');
 
@@ -71,19 +72,62 @@ var youngestCustomer = function(array){
 
 var averageBalance;  //skip til next week
 
-//use .filter
+//use .filter to see how many customers name begin with a given letter
 var firstLetterCount = function(array, letter){
-    let first = _.filter(function(list){
-        if (list.name[0].toUpperCase() === letter)
+   
+    let first = _.filter(array, function(ele, ind, entire){
+        return ele.name.charAt(0).toUpperCase() === letter.toUpperCase();
     })
-    return first;
+    return first.length;
 };
 
-var friendFirstLetterCount;
+//find out how many friends, of a given customer, have names that start with a given letter
+//filter
+var friendFirstLetterCount = function(array, customer, letter){
 
-var friendsCount;
+    for (let i = 0; i < array.length; i ++){
+        if (array[i].name === customer){
+            let first = _.filter(array[i].friends, function(ele, id, entire){
+               return ele.name.charAt(0).toUpperCase() === letter.toUpperCase();
+            })
+            return first.length;
+        }
+    }
+  
+};
+//find the customer, that have a given customer name in their friend list
+var friendsCount = function(array, name){
+  let output = [];
+    for (let i = 0; i < array.length; i++){
+    let friends = _.filter(array[i].friends, function(ele, id, entire){
+        if (ele.name === name){
+            return ele.name; 
+        } 
+    })
+    if (friends.length > 0){
+        output.push(array[i].name);
+    }
+}
+   return output;
+}; 
 
-var topThreeTags;
+//find most common tag amongst all customers tags
+var topThreeTags = function(array){
+    //storage array
+    let output = [];
+    //concatenate all arrays into one array
+    //count all tag arrays and see which top 3 elements show the most
+    let objTags = [];
+
+    for (let i = 0; i < array.length; i ++){
+       
+        objTags = objTags.concat(array[i].tags);
+    }
+    
+    
+    console.log(objTags);
+    return output;
+};
 
 var genderCount;
 

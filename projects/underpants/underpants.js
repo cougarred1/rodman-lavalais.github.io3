@@ -249,7 +249,10 @@ _.filter = function(array, func){
  return output; 
 }
 
-
+/**
+ * let first = _.filter(array, function(ele, ind, entire){
+        return array.name.charAt(0).toUpperCase() === letter.toUpperCase()
+ */
 /*
 
 */
