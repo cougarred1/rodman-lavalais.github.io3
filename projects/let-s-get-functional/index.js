@@ -114,21 +114,26 @@ var friendsCount = function(array, name){
 //find most common tag amongst all customers tags
 var topThreeTags = function(array){
     //storage array
-    let output = [];
+    let output = {};
     //concatenate all arrays into one array
     //count all tag arrays and see which top 3 elements show the most
-    let objTags = [];
+    let tags = [];
 
     for (let i = 0; i < array.length; i ++){
        
-        objTags = objTags.concat(array[i].tags);
+        tags = tags.concat(array[i].tags);
     }
     
+    for (let j = 0; j < tags.length; j++){
+        if (output.tags){
+            
+        }
+    }
     
-    console.log(objTags);
+    console.log(tags);
     return output;
 };
-
+//same as female count, but answer put into a object
 var genderCount;
 
 //////////////////////////////////////////////////////////////////////
