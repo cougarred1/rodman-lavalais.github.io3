@@ -70,7 +70,22 @@ var youngestCustomer = function(array){
     return youngest.name;
 };
 
-var averageBalance;  //skip til next week
+var averageBalance = function(array){
+  let bal = array.map(function(item){
+    let value = item.balance.split("").filter(function(e){
+        if (e !== "," && e !== "$"){
+            return e;
+        }
+    }).join("")
+value = parseFloat(value)
+return value;
+})
+
+let final = bal.reduce(function(acc, cur){
+return acc + cur;
+    }, 0)
+return final / bal.length;
+};  
 
 //use .filter to see how many customers name begin with a given letter
 var firstLetterCount = function(array, letter){
@@ -151,13 +166,25 @@ for (let key in storage){
   })
   
 }
-  console.log(storageArr);
+  
   return [storageArr[0][0], storageArr[1][0], storageArr[2][0]];
    
 
 };
 //same as female count, but answer put into a object
-var genderCount;
+var genderCount = function(array){
+
+let genders = array.reduce(function(acc, cur){
+  if(acc[cur.gender]){
+     acc[cur.gender]++;
+  } else {
+     acc[cur.gender] = 1;
+  }
+  return acc;
+    }, {})
+    console.log(genders);
+return genders;
+};
 
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////
