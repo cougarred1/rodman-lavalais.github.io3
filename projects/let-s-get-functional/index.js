@@ -114,7 +114,7 @@ var friendsCount = function(array, name){
 //find most common tag amongst all customers tags
 var topThreeTags = function(array){
     //storage array
-    let output = {};
+    
     //concatenate all arrays into one array
     //count all tag arrays and see which top 3 elements show the most
     let tags = [];
@@ -123,15 +123,38 @@ var topThreeTags = function(array){
        
         tags = tags.concat(array[i].tags);
     }
+
+let storage = {};
+let storageArr = [];
+for (let i = 0; i < tags.length; i++){
+  if(storage[tags[i]]){
+   storage[tags[i]]++
+  } else {
+    storage[tags[i]] = 1;
+  }
+
+ 
+ // return result; 
+  }
+
+for (let key in storage){
+  storageArr.push([key, storage[key]])
+  storageArr.sort(function(a, b){
+  if (a[1] < b[1]){
+    return 1;
+  } else if (a[1] > b[1]){
+    return -1;
+  } else {
+    return 0;
+  }
     
-    for (let j = 0; j < tags.length; j++){
-        if (output.tags){
-            
-        }
-    }
-    
-    console.log(tags);
-    return output;
+  })
+  
+}
+  console.log(storageArr);
+  return [storageArr[0][0], storageArr[1][0], storageArr[2][0]];
+   
+
 };
 //same as female count, but answer put into a object
 var genderCount;
