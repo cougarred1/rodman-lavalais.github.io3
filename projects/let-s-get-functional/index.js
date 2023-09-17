@@ -72,9 +72,9 @@ var youngestCustomer = function(array){
 
 var averageBalance = function(array){
   let bal = array.map(function(item){
-    let value = item.balance.split("").filter(function(e){
-        if (e !== "," && e !== "$"){
-            return e;
+    let value = item.balance.split("").filter(function(element){
+        if (element !== "," && element !== "$"){
+            return element;
         }
     }).join("")
 value = parseFloat(value)
