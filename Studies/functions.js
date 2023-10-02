@@ -90,7 +90,9 @@ var greeting = "hello"; //global scope accessed anywhere
 function newFunc(){
     let newGreet = "bye";
     //local scope accessed only in the function
-
+    greeting = "hellloooo";
+    //to access or modify a global scoped variable, all you have to do is reference the variable name
+    //inside of the function. Since global scoped variables are accessible from anywhere in the code
 }
 
 //closures

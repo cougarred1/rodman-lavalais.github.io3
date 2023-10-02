@@ -11,9 +11,14 @@
 
 const { stringify } = require("querystring");
 
+// Being immutable
+// Strings ar immutalbe in Javascript, meaning that after being created, you cannot change
+//individual characters within the string. Any modifications desired results in a new string created
+
+
 //Operators
 
-let str1 = "hello";
+let str1 = "Hello";
 let str2 = "Rodman";
 let str3 = "Hello my friend!    ";
 let result = str1 + " " + str2;
@@ -22,8 +27,10 @@ let result = str1 + " " + str2;
 
 console.log(str1.length); //returns number
 
-console.log(str1.split(""));
+console.log(str1.split("")); //returns a array of each letter as a element
 
-console.log(str3.trim());
+console.log(result); // returns "Hello Rodman"
+
+console.log(str3.trim()); 
 
 console.log(str3.toLowerCase());

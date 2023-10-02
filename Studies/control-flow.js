@@ -24,9 +24,9 @@ if (condition) {
 if (condition1) {
     // Code that will run if condition1 is true
 } else if (condition2) {
-    // Code that will run if condition2 is true
+    // Code that will run if condition2 is true and condition 1 is false
 } else {
-    // Code that will run if no condition is true
+    // Code that will run if none of the preveious conditions is true
 }
 
 //switch

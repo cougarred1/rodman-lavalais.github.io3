@@ -79,10 +79,21 @@ x = 7;
 console.log(x); // 7
 console.log(y); // 3
 
-//reference data type
+//Copy by reference example
 let obj1 = { name: "Rodman"};
-let obj2 = obj1;
-obj1.name = "Ricky";
+let obj2 = obj1; //obj2 references the same object as obj1
+
+obj2.name = "Ricky"; // Modifying obj2 also changes obj1
 
 console.log(obj1.name); // "Ricky"
 console.log(obj2.name); // "Ricky"
+
+//copy by value example
+
+let str1 = "hello";
+let str2 = str1; //num2 is a separate copy of the value of str1
+
+str2 = "bye"; // changing str2 doesn't affect str1.
+
+console.log(str1); // hello
+console.log(str2); // bye
