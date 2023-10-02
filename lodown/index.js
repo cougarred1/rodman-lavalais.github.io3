@@ -90,8 +90,9 @@ module.exports.first = first;
  * if it is an array, it checks if <number> is a number and if it is it returns that amount
  * of elements in the array starting from the back. if <number> isn't a number it just returns the last element of the array
  * 
- * @param {array, number}: it takes in an array and a number
- * @returns{array or number}: it returns a number or array, depending on what our arguments is
+ * @param {array, number}: it takes in an array 
+ * @param {number}: Number the function takes in
+ * @returns{array or number}: it returns an array of the first elements in the input array
  */
 
 _.last = function(array, number){
@@ -300,7 +301,7 @@ module.exports.map = map;
  * pluck: Function which returns an array containing the value of every key
  * 
  * @param {array of objects}: iterate through the array of objects
- * @param{properties}: Iterate through each key of in every object iteration
+ * @param{string}: Iterate through each key of in every object iteration, representing the string of every value
  * @returns{Array}: Returns an array values of every key
  */
 
